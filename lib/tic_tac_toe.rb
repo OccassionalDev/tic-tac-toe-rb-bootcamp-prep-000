@@ -192,7 +192,6 @@ def play(board)
   while over?(board) != TRUE
     turn(board)
   end
-
   
   display_board(board)
   
