@@ -168,13 +168,9 @@ def winner(board)
   end
 end 
 
-
-def play(board)
-  while over?(board) != TRUE
-  #Step 1: Display the board
-  display_board(board)
-  
-  #Step 2: Request Input
+#Function for to use for each turn of the Game
+def turn(board)
+  #Step 1: Request Input
    puts "Please enter 1-9: "
     chosen_position = gets.chomp
   
@@ -187,9 +183,16 @@ def play(board)
         chosen_position = input_to_index(chosen_position)
     end
     
-  #Step 3: Once input is valid, place the move in the board
-    move(board, chosen_position, current_player(board))
+  #Step 2: Once input is valid, place the move in the board
+  move(board, chosen_position, current_player(board))
+  display_board(board)
+end
+
+def play(board)
+  while over?(board) != TRUE
+    turn(board)
   end
+
   
   display_board(board)
   
